@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const debug = require('debug');
 
 require('dotenv').config();
 
@@ -22,4 +23,8 @@ app.use((req, res) => {
     res.status(404).send('Page not found');
 });
 
-module.exports = app;
+app.set('port', process.env.PORT || 3000);
+
+const server = app.listen(app.get('port'), () => {
+  debug('Express server listening on port ' + server.address().port);
+});
