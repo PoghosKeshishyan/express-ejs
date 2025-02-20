@@ -1,0 +1,41 @@
+<%- include('layout') %>
+<link rel="stylesheet" href="/stylesheets/add-user.css">
+
+<div class="add-user">
+
+    <h2>Add new user</h2>
+
+    <form action="/add/user" method="POST" enctype="multipart/form-data">
+        <div class="row">
+            <div class="content">
+                <div class="input-box">
+                    <p>Name: </p>
+                    <input type="text" name="name" required>
+                </div>
+
+                <div class="input-box">
+                    <p>Email: </p>
+                    <input type="email" name="email" required>
+                </div>
+
+                <div class="input-box">
+                    <p>Phone: </p>
+                    <input type="text" name="phone" required>
+                </div>
+
+                <div class="input-box">
+                    <p>Image: </p>
+                    <input type="file" name="image" accept="image/*" required>
+                </div>
+            </div>
+
+            <img src="/images/preview-image.jpg" class="preview-image" alt="user image">
+        </div>
+
+        <input type="submit" value="Add new user">
+
+    </form>
+    
+</div>
+
+<script src="/javascript/add-user.js"></script>

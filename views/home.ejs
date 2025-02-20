@@ -1,0 +1,38 @@
+<%- include('layout') %>
+<link rel="stylesheet" href="/stylesheets/home.css">
+
+<% if (users.length) { %> 
+    <table>
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Photo</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach((user, index) => { %>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <td>
+                        <a href="/images/<%= user.image %>" target="_blank">
+                            <img src="/images/<%= user.image %>" alt="user-photo">
+                        </a>
+                    </td>
+                    <td><%= user.name %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.phone %></td>
+                    <td>
+                        <a href="/edit/user/<%= user.id %>"><i class="fa-solid fa-pen"></i></a>
+                        <button onclick="deleteUser('<%= user.id %>')"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+<% } %> 
+
+<script src="/javascript/home.js"></script>
